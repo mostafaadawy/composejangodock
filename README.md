@@ -16,3 +16,4 @@ COPY . /code/
 - while work directory is defined then copying the requirements.txt in order to be installed or executed
 - run line code defines that the execution tool will be pip install
 - then copy the code in the current folder to the docker
+- in requirements.txt `Django>3.0,<4.0` we define the required version of Django that we need to install as dependency 
