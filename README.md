@@ -17,3 +17,4 @@ COPY . /code/
 - run line code defines that the execution tool will be pip install
 - then copy the code in the current folder to the docker
 - in requirements.txt `Django>3.0,<4.0` we define the required version of Django that we need to install as dependency 
+- now lets create `docker-compose.yml` file that file that defines the services that our docker/app will use
