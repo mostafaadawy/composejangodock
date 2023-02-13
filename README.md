@@ -53,3 +53,4 @@ in the original django project creation we create the virtualenv then create ins
 where . means in the current place and `dockeddjango` is the project name that we can use any name
 - in our case we use the same command but prefixed by `docker compose run web` 
 - to become `docker compose run web django-admin startproject dockeddjango .`
+- this will create our project first file that will be executed is docker file that will install the dependency then build the services from compose
