@@ -48,3 +48,8 @@ services:
 - depends_on join the two service where it depends on db
 - the environment in db describes the connection so later we need to define it
 - and in our web django which by default depends on sqlite needs to configured by the path to postgres db service
+# create project
+in the original django project creation we create the virtualenv then create inside it after activating it the dependency which will be django then creates django project using django command `django-admin startproject dockeddjango .`
+where . means in the current place and `dockeddjango` is the project name that we can use any name
+- in our case we use the same command but prefixed by `docker compose run web` 
+- to become `docker compose run web django-admin startproject dockeddjango .`
