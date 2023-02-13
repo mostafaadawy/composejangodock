@@ -68,7 +68,7 @@ DATABASES = {
 ```sh
 DATABASES = {
      'default':{
-        'ENGINE': 'django.db.backends.postgressql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
@@ -77,5 +77,6 @@ DATABASES = {
      }
 }
 ```
-- 
+- to build our application in single service we used `docker build -t nameof docker` that creates image then this image will use the docker file description then we can run our docker container app by `docker run dockerimagenae` but here we build using `docker compose run web django-admin startproject dockeddjango .`
+- and we run it using `docker-compose up`
 
