@@ -18,3 +18,33 @@ COPY . /code/
 - then copy the code in the current folder to the docker
 - in requirements.txt `Django>3.0,<4.0` we define the required version of Django that we need to install as dependency 
 - now lets create `docker-compose.yml` file that file that defines the services that our docker/app will use
+- in this example we have two services web server and database
+- so this file describes the services to use and how to linking together
+- check the code
+```sh
+version: "3.9"
+
+services:
+    db:
+        image: postgres
+        environment:
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+    web:
+        build: .
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes:
+            - .:/code
+        ports:
+            - "8000:8000"
+        depends_on:
+            - db
+```
+- for the code we can see tha first we have to describe the cversion of the docker compose
+- then we describe the service tabs is important and here there are two services db that uses ready image and web that will be build in same place `.` 
+- command in web service defines that when we call that service we run the server 
+- also we define the volume of the server and the ports mapping left side is the docker while right is the os
+- depends_on join the two service where it depends on db
+- the environment in db describes the connection so later we need to define it
+- and in our web django which by default depends on sqlite needs to configured by the path to postgres db service
