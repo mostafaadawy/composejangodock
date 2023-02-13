@@ -79,4 +79,9 @@ DATABASES = {
 ```
 - to build our application in single service we used `docker build -t nameof docker` that creates image then this image will use the docker file description then we can run our docker container app by `docker run dockerimagenae` but here we build using `docker compose run web django-admin startproject dockeddjango .`
 - and we run it using `docker-compose up`
+- when we got that error `django.core.exceptions.ImproperlyConfigured: Error loading psycopg2 moror loading psycopg2 module: No module named 'psycopg2'`
+- it means docker needs this dependency so in the dependency requirements.txt we add this dependency
+- to have `psycopg2-binary>=2.8` 
+- then we here needs to build again the image `docker-compose build` to update
+- then run again `docker-compose up`
 
