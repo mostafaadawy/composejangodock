@@ -54,3 +54,20 @@ where . means in the current place and `dockeddjango` is the project name that w
 - in our case we use the same command but prefixed by `docker compose run web` 
 - to become `docker compose run web django-admin startproject dockeddjango .`
 - this will create our project first file that will be executed is docker file that will install the dependency then build the services from compose
+- in django we need to edit the database to link it with db service postgres in settings.py
+- change this to 
+```sh
+DATABASES = {
+     'default':{
+        'ENGINE': 'django.db.backends.postgressql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+     }
+}
+```
+- to 
+```sh
+
