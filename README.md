@@ -58,6 +58,15 @@ where . means in the current place and `dockeddjango` is the project name that w
 - change this to 
 ```sh
 DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+```
+- to 
+```sh
+DATABASES = {
      'default':{
         'ENGINE': 'django.db.backends.postgressql',
         'NAME': 'postgres',
@@ -68,6 +77,5 @@ DATABASES = {
      }
 }
 ```
-- to 
-```sh
+- 
 
