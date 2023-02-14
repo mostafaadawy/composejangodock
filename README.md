@@ -105,6 +105,7 @@ to become `docker-compose run web python manage.py startapp appname`
 def index(request):
     return render(request, "index.html")
 ```
+- create urls.py file for urls
 - 
 
 
