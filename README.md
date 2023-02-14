@@ -114,6 +114,9 @@ urlpatterns = [
     path("", views.index()),
 ]
 ```
+- in settings installed apps we have to include our new app
+```sh
 
+```
 
 
