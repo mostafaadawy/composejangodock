@@ -138,6 +138,7 @@ urlpatterns = [
 
 ```
 - we have also to import include as shown
-- 
+- we gave to build our docker `docker-compose build` then `docker-compose up`
+- or both commands in one `docker-compose up --build`
 
 
