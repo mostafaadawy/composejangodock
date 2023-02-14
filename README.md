@@ -95,4 +95,7 @@ DATABASES = {
 ## Note after any change we can build to add to image
 
 # Working on django project
-- 
+- to use any of the ready make command such in laravel `php artisan cmd` or django `python manage.py startapp appname` we must prefix it by `docker-compose run web ` where web is our web service name
+to become `docker-compose run web python manage.py startapp appname`
+- we create django app which equivalent to component 
+
