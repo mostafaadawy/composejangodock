@@ -85,3 +85,14 @@ DATABASES = {
 - then we here needs to build again the image `docker-compose build` to update
 - then run again `docker-compose up`
 
+# BUGS and Solutions
+|BUG|reason|SOL|ref|
+|-- |--|--|--|
+|always stuck in `watching for file changes with statreloader docker`|python needs certain environment condition someting to unbuffer it|image should contains environmental condition to unbuffer the python where it should be described in docker blueprint `dockerfile` so that we should include `ENV PYTHONUNBUFFERED=1` actually we were including it but there was misspelling |[link](https://stackoverflow.com/questions/65301487/django-with-docker-stuck-on-watching-for-file-changes-with-statreloader)|
+|in Docker because I had changed something in Dockerfile, sometimes I get "none" image tags|These are intermediate images and can be seen using docker images -a. They don't result into a disk space problem but it is definitely a screen "real estate" problem. Since all these <none>:<none> images can be quite confusing as what they signify.|if your case has to do with dangling images, it's ok to remove them with:`docker rmi $(docker images -f "dangling=true" -q)` |[link](https://stackoverflow.com/questions/53221412/why-the-none-image-appears-in-docker-and-how-can-we-avoid-it)|
+|after solving previous errors where also docker desktop can solve removing unwanted none images by removing its containers if there and delete it also but when we press the link 0.0.0.0:8000 it gives error page whenwe trying to use another localhost or 127.0.0.1:8000 it doesn't work |You must set a container’s main process to bind to the special 0.0.0.0 “all interfaces” address, or it will be unreachable from outside the container.In Docker 127.0.0.1 almost always means “this container”, not “this machine”. If you make an outbound connection to 127.0.0.1 from a container it will return to the same container; if you bind a server to 127.0.0.1 it will not accept connections from outside.|untill now just leave 0.0.0.0:8000 and manually in browser use localhost:8000 or 127.0.0.1:8000|[link](https://stackoverflow.com/questions/59179831/docker-app-server-ip-address-127-0-0-1-difference-of-0-0-0-0-ip)|
+
+## Note after any change we can build to add to image
+
+# Working on django project
+- 
