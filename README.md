@@ -116,7 +116,28 @@ urlpatterns = [
 ```
 - in settings installed apps we have to include our new app
 ```sh
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'hey_django_from_docker',
+]
+```
+- and also in url we include our app urls file
+```sh
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('hey_django_from_docker.urls'))
+]
 
 ```
+- we have also to import include as shown
+- 
 
 
